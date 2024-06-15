@@ -279,7 +279,6 @@
             FormBorderStyle = FormBorderStyle.None;
             Name = "LoginForm";
             Text = "Form1";
-            Load += LoginForm_Load;
             pnlLogin.ResumeLayout(false);
             pnlLogin.PerformLayout();
             pnlResetPassword.ResumeLayout(false);

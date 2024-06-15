@@ -10,7 +10,6 @@ public partial class LoginForm : Form
 
 
     #region FormControls
-
     // Moveable without Border
     protected override void WndProc(ref Message m)
     {
@@ -75,7 +74,6 @@ public partial class LoginForm : Form
         pnlResetPassword.Visible = true;
         btnBack.Visible = true;
     }
-
     #endregion
 
     #region resetPasswordPanel
@@ -94,8 +92,6 @@ public partial class LoginForm : Form
     }
 
     #endregion
-
-
 
 
 }
