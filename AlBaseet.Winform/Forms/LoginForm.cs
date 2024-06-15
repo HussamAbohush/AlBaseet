@@ -5,6 +5,7 @@ public partial class LoginForm : Form
     public LoginForm()
     {
         InitializeComponent();
+        CenterToScreen();
     }
 
 
@@ -13,8 +14,9 @@ public partial class LoginForm : Form
     private void LoginForm_Load(object sender, EventArgs e)
     {
         pnlLogin.Visible = true;
-        resetPasswordPanel.Visible = false;
-        newPasswordPanel.Visible = false;
+        pnlResetPassword.Visible = false;
+        pnlNewPassword.Visible = false;
+        
     }
     // Moveable without Border
     protected override void WndProc(ref Message m)
@@ -38,21 +40,21 @@ public partial class LoginForm : Form
     // Back button
     private void backButton_Click(object sender, EventArgs e)
     {
-        if (resetPasswordPanel.Visible)
+        if (pnlResetPassword.Visible)
         {
             pnlLogin.Visible = true;
-            resetPasswordPanel.Visible = false;
-            backButton.Visible = false;
+            pnlResetPassword.Visible = false;
+            btnBack.Visible = false;
         }
-        else if (newPasswordPanel.Visible)
+        else if (pnlNewPassword.Visible)
         {
-            newPasswordPanel.Visible = false;
-            resetPasswordPanel.Visible = true;
+            pnlNewPassword.Visible = false;
+            pnlResetPassword.Visible = true;
         }
         else
         {
             pnlLogin.Visible = false;
-            resetPasswordPanel.Visible = true;
+            pnlResetPassword.Visible = true;
 
         }
     }
@@ -70,16 +72,17 @@ public partial class LoginForm : Form
     private void btnResetPassword2_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
     {
         pnlLogin.Visible = false;
-        resetPasswordPanel.Visible = true;
-        backButton.Visible = true;
+        pnlResetPassword.Visible = true;
+        btnBack.Visible = true;
     }
     #endregion
 
     #region resetPasswordPanel
     private void resetButton_Click(object sender, EventArgs e)
     {
-        resetPasswordPanel.Visible = false;
-        newPasswordPanel.Visible = true;
+        pnlResetPassword.Visible = false;
+        pnlNewPassword.Visible = true;
+
     }
     #endregion
 
@@ -91,5 +94,15 @@ public partial class LoginForm : Form
 
     #endregion
 
-
+    private void chkShowPassword_CheckedChanged(object sender, EventArgs e)
+    {
+        if (chkShowPassword.Checked)
+        {
+            txtPassword.showPassword(true);
+        }
+        else
+        {
+            txtPassword.showPassword(false);
+        }
+    }
 }
