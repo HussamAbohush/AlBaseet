@@ -35,8 +35,13 @@ namespace AlBaseet.Winform.Controls
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
         [Bindable(true)]
         public override string Text 
-        { 
+        {
+            get => txtTextBoxGroup.Text;
+            set
+            {
                 text = value;
+                txtTextBoxGroup.Text = value;
+            }
         }
 
        
@@ -80,23 +85,6 @@ namespace AlBaseet.Winform.Controls
                 txtTextBoxGroup.ForeColor = Color.DarkGray;
                 if (isPassword) txtTextBoxGroup.UseSystemPasswordChar = false;
             }
-
-        }
-        public void showPassword(bool show)
-        {
-            if (show)
-            {
-                isPassword = false;
-                txtTextBoxGroup.UseSystemPasswordChar = false;
-            }
-            else 
-            {
-                isPassword = true;
-                txtTextBoxGroup.UseSystemPasswordChar = true; 
-            }
-
-
-
 
         }
     }
