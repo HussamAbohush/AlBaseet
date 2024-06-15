@@ -36,12 +36,7 @@ namespace AlBaseet.Winform.Controls
         [Bindable(true)]
         public override string Text 
         { 
-            get => txtTextBoxGroup.Text; 
-            set 
-            {
                 text = value;
-                txtTextBoxGroup.Text = value;
-            }
         }
 
        
@@ -87,6 +82,22 @@ namespace AlBaseet.Winform.Controls
             }
 
         }
+        public void showPassword(bool show)
+        {
+            if (show)
+            {
+                isPassword = false;
+                txtTextBoxGroup.UseSystemPasswordChar = false;
+            }
+            else 
+            {
+                isPassword = true;
+                txtTextBoxGroup.UseSystemPasswordChar = true; 
+            }
 
+
+
+
+        }
     }
 }

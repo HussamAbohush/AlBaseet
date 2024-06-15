@@ -47,6 +47,7 @@
             txtConfirmPassword = new Controls.TextBoxGroup();
             txtNewPassword = new Controls.TextBoxGroup();
             btnSavePassword = new Button();
+            chkShowNewPassword = new CheckBox();
             pnlLogin.SuspendLayout();
             pnlResetPassword.SuspendLayout();
             pnlNewPassword.SuspendLayout();
@@ -65,6 +66,7 @@
             pnlLogin.Name = "pnlLogin";
             pnlLogin.Size = new Size(300, 450);
             pnlLogin.TabIndex = 0;
+            pnlLogin.TabStop = true;
             // 
             // chkShowPassword
             // 
@@ -254,6 +256,16 @@
             btnSavePassword.UseVisualStyleBackColor = true;
             btnSavePassword.Click += saveNewPasswordButton_Click;
             // 
+            // chkShowNewPassword
+            // 
+            chkShowNewPassword.AutoSize = true;
+            chkShowNewPassword.Location = new Point(40, 260);
+            chkShowNewPassword.Name = "chkShowNewPassword";
+            chkShowNewPassword.Size = new Size(108, 19);
+            chkShowNewPassword.TabIndex = 5;
+            chkShowNewPassword.Text = "Show Password";
+            chkShowNewPassword.UseVisualStyleBackColor = true;
+            // 
             // LoginForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -267,6 +279,7 @@
             FormBorderStyle = FormBorderStyle.None;
             Name = "LoginForm";
             Text = "Form1";
+            Load += LoginForm_Load;
             pnlLogin.ResumeLayout(false);
             pnlLogin.PerformLayout();
             pnlResetPassword.ResumeLayout(false);
