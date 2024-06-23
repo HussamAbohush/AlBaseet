@@ -1,15 +1,24 @@
-namespace AlBaseet.Winform;
+using AlBaseet.Core.Entities;
+using AlBaseet.Core.Services;
+using AlBaseet.WinForm.Forms;
+
+
+namespace AlBaseet.Winform.Forms;
 
 public partial class LoginForm : Form
 {
-    public LoginForm()
+    private readonly ILoginService _loginService;
+    public LoginForm(ILoginService loginService)
     {
+        _loginService = loginService;
+        _loginService.Authenticate("", "");
         InitializeComponent();
         CenterToScreen();
+
     }
 
 
-    #region FormControls
+    #region Form Controls
     // Moveable without Border
     protected override void WndProc(ref Message m)
     {
@@ -37,11 +46,13 @@ public partial class LoginForm : Form
             pnlLogin.Visible = true;
             pnlResetPassword.Visible = false;
             btnBack.Visible = false;
+            lblResetError.Text = string.Empty;
         }
         else if (pnlNewPassword.Visible)
         {
             pnlNewPassword.Visible = false;
             pnlResetPassword.Visible = true;
+            lblChangeError.Text = string.Empty;
         }
         else
         {
@@ -52,7 +63,7 @@ public partial class LoginForm : Form
     }
     #endregion
 
-    #region LoginPanel
+    #region Login Panel
     private void chkShowPassword_CheckedChanged(object sender, EventArgs e)
     {
         if (chkShowPassword.Checked)
@@ -66,32 +77,92 @@ public partial class LoginForm : Form
     }
     private void loginButton_Click(object sender, EventArgs e)
     {
+        var tryLogin = _loginService.Authenticate(txtUsername.Text, txtPassword.Text);
+        if (tryLogin.isAuthenticated)
+        {
+            Form NextForm = tryLogin.role == Role.Admin ? new AdminForm() : new EmployeeForm();
+            NextForm.Show();
+            Hide();
+        }
+        else
+        {
+            lblLoginError.ForeColor = Color.Tomato;
+            lblLoginError.Text = "Incorrect Username or password";
+            label1.Visible = true;
+            label2.Visible = true;
 
+        }
     }
     private void btnResetPassword_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
     {
         pnlLogin.Visible = false;
         pnlResetPassword.Visible = true;
         btnBack.Visible = true;
+        lblLoginError.Text = string.Empty;
     }
     #endregion
 
-    #region resetPasswordPanel
+    #region Reset Password Panel
     private void resetButton_Click(object sender, EventArgs e)
     {
-        pnlResetPassword.Visible = false;
-        pnlNewPassword.Visible = true;
+        var passwordReset = _loginService.ResetPassword(txtUsernameforReset.Text, txtRecoveryPhrase.Text);
+        if (passwordReset)
+        {
+            pnlResetPassword.Visible = false;
+            pnlNewPassword.Visible = true;
+            lblResetError.Text = string.Empty;
+        }
+        else
+        {
+            lblResetError.ForeColor = Color.Tomato;
+            lblResetError.Text = "Incorrect Username or Recovery Phrase";
+        }
+
 
     }
     #endregion
 
-    #region newPasswordPanel
+    #region New Password Panel
     private void saveNewPasswordButton_Click(object sender, EventArgs e)
     {
+        if (txtNewPassword.Text == txtConfirmPassword.Text)
+        {
+            var passwordChanged = _loginService.ChangePassword(txtUsernameforReset.Text, txtNewPassword.Text);
+            if (passwordChanged)
+            {
+                pnlNewPassword.Visible = false;
+                pnlLogin.Visible = true;
+                lblLoginError.Text = "Password Changed Sccessfully ";
+                lblLoginError.ForeColor = Color.Green;
+                lblChangeError.Text = string.Empty;
+            }
+            else
+            {
+                lblChangeError.Text = "Password should be more than 8 chars and at least (1 upper case and 1 number )";
+            }
+        }
+        else
+        {
+            lblChangeError.Text = " Passwords do not match ";
+        }
 
     }
+    private void chkShowNewPassword_CheckedChanged(object sender, EventArgs e)
+    {
+        if (chkShowNewPassword.Checked)
+        {
+            txtNewPassword.showPassword(true);
+            txtConfirmPassword.showPassword(true);
+        }
+        else
+        {
+            txtNewPassword.showPassword(false);
+            txtConfirmPassword.showPassword(false);
 
+        }
+    }
     #endregion
+
 
 
 }
