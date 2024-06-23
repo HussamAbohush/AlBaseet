@@ -12,13 +12,13 @@ namespace AlBaseet.Winform.Controls
 {
     public partial class TextBoxGroup : UserControl
     {
-        private Image image ;
+        private Image image;
         private string text;
         public TextBoxGroup()
         {
             InitializeComponent();
         }
-        
+
 
         public Image Image
         {
@@ -29,12 +29,12 @@ namespace AlBaseet.Winform.Controls
                 picGroup.Image = image;
             }
         }
-        
+
         [EditorBrowsable(EditorBrowsableState.Always)]
         [Browsable(true)]
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Visible)]
         [Bindable(true)]
-        public override string Text 
+        public override string Text
         {
             get => txtTextBoxGroup.Text;
             set
@@ -44,13 +44,13 @@ namespace AlBaseet.Winform.Controls
             }
         }
 
-       
+
 
         [Description("Hide the writen chars"), Category("Data")]
         public bool isPassword
         {
-            get ;
-            set ;
+            get;
+            set;
         }
         public void showPassword(bool show)
         {
@@ -74,7 +74,7 @@ namespace AlBaseet.Winform.Controls
                 txtTextBoxGroup.ForeColor = Color.Black;
                 if (isPassword) txtTextBoxGroup.UseSystemPasswordChar = true;
             }
-            
+
         }
 
         private void txtname_Leave(object sender, EventArgs e)

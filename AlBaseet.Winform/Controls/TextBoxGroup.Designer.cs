@@ -1,4 +1,5 @@
-﻿namespace AlBaseet.Winform.Controls
+﻿
+namespace AlBaseet.Winform.Controls
 {
     partial class TextBoxGroup
     {
@@ -36,7 +37,7 @@
             // 
             // picGroup
             // 
-            picGroup.Image = Properties.Resources.LoginUser;
+            picGroup.Image = WinForm.Properties.Resources.LoginUser;
             picGroup.Location = new Point(10, 7);
             picGroup.Name = "picGroup";
             picGroup.Size = new Size(25, 16);

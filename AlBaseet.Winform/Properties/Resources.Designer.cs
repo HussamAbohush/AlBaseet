@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace AlBaseet.Winform.Properties {
+namespace AlBaseet.WinForm.Properties {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace AlBaseet.Winform.Properties {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("AlBaseet.Winform.Properties.Resources", typeof(Resources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("AlBaseet.WinForm.Properties.Resources", typeof(Resources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -96,6 +96,26 @@ namespace AlBaseet.Winform.Properties {
         internal static System.Drawing.Bitmap LoginUser {
             get {
                 object obj = ResourceManager.GetObject("LoginUser", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap WhatsApp_Image_2024_06_21_at_21_04_43 {
+            get {
+                object obj = ResourceManager.GetObject("WhatsApp Image 2024-06-21 at 21.04.43", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap WhatsApp_Image_2024_06_21_at_21_04_43a {
+            get {
+                object obj = ResourceManager.GetObject("WhatsApp Image 2024-06-21 at 21.04.43a", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

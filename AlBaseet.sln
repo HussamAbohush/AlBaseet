@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.9.34902.65
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AlBaseet.Winform", "AlBaseet.Winform\AlBaseet.Winform.csproj", "{2EAD930A-6190-4911-B27C-BFC6428596B3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AlBaseet.WinForm", "AlBaseet.Winform\AlBaseet.WinForm.csproj", "{2EAD930A-6190-4911-B27C-BFC6428596B3}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AlBaseet.Core", "AlBaseet.Core\AlBaseet.Core.csproj", "{D95453CD-19E7-4AB0-B363-1C5205F3BFFD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{2EAD930A-6190-4911-B27C-BFC6428596B3}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2EAD930A-6190-4911-B27C-BFC6428596B3}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2EAD930A-6190-4911-B27C-BFC6428596B3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D95453CD-19E7-4AB0-B363-1C5205F3BFFD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D95453CD-19E7-4AB0-B363-1C5205F3BFFD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D95453CD-19E7-4AB0-B363-1C5205F3BFFD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D95453CD-19E7-4AB0-B363-1C5205F3BFFD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
